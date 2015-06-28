@@ -1,0 +1,17 @@
+Iniciar   ---> Cuando es creado el usuario
+Deposito  ---> Cuando el usuario inserta dinero en su cuenta
+Retiro    ---> Cuando el usuario canjea su dinero virtual (fichas) por dinero real
+Premio    ---> Cuando el usuario gano una apuesta
+Cobro     ---> Cuando se le cobra a el usuario por participar en una apuesta
+
+Devolucion ---> Cuando por "x" motivo se cancelo un juego y la apuesta es cancelada por lo tanto se
+                 reembolsa el dinero a los clientes.
+
+
+
+SELECT * 
+FROM `Registrations`  
+WHERE `Role` = "Attendee" 
+    AND `RegistrationStatus_ID` = "1" 
+    AND `DigSignature` IS NULL 
+    AND `Event_ID` in ("147", "155", "160")
