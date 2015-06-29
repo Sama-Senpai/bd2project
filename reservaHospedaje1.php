@@ -174,6 +174,7 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
                       
                         $contador=0;
                         $contador2=0;
+                        $contador3=0;
                         
                                 foreach ($registro as $clave){
 
@@ -181,7 +182,9 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
                                
                                  $contador ++;                        
                                 } 
-                                 $array2[$contador2]=$array[1];
+                               $array2[$contador2]=$array[4];
+                                 
+                                 $array3[$contador2]=$array[1];
                                  $contador2++;
                       
               ?>
@@ -189,7 +192,7 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
                       <tr>
                                 <td data-title="Descripción"> <?php echo $array [4]; ?>  </td>
                                 <td data-title="Precio"><?php echo $array [5]; ?> </td>
-                                <td data-title="Cantidad" class="numeric"><?php echo $cuenta= $array [3] - $array [2]; ?></td>
+                                <td data-title="Disponibles" class="numeric"><?php echo $cuenta= $array [3] - $array [2]; ?></td>
                                 <td data-title="Camas Adicinales" class="numeric"> <div align="center"><?php echo $array [6]; ?> </div> </td>
                                
                         </tr>   
@@ -220,7 +223,90 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
     pager.init();
     pager.showPageNav('pager', 'pageNavTransacciones');
     pager.showPage(1);
-</script>      
+</script>    
+
+
+
+  <form role="form" method="POST" action="">
+        
+               
+                   <div class="form-group">
+                  <label for="tipo" class="col-md-2">
+                   Introduzca el Tipo de habitacion:
+                  </label>   
+                  <div class="col-md-10">
+                      <select name="tipo" onchange=>
+                   <option value="0">Seleccione un Tipo</option>
+                          
+    <?php
+    $j=0;
+    while ($j<$contador2){
+                        echo "<option value=".$array3[$j].">".$array2[$j]."</option>";
+                        $j++;
+    }
+ 
+    ?>
+                      </select>
+                  </div><br/><br/>
+                       
+                  </div> 
+      
+             <div class="col-md-20">
+             <div class="form-group">
+                  <label for="cant" class="col-md-2">
+                    Cantidad:
+                  </label>
+                  <div class="col-md-25">
+                      <input title="Introduzca el numero de habitaciones" type="text" class="form-control" name="cant" id="cant" placeholder="3" required>
+                  </div><br/><br/>
+                </div> 
+             </div>
+      
+      
+        <div class="form-group">
+                  <label for="cedula" class="col-md-2">
+                    Cedula Cliente:
+                  </label>
+                  <div class="col-md-10">
+                      <input title="Introduzca la cedula del cliente" type="text" class="form-control" name="cedula" id="cedula" placeholder="256021" required>
+                  </div><br/><br/>
+                </div>
+      
+      
+       <label for="proce"  class="col-md-5">
+                        Tipo de procedimiento:
+                    </label> <br/>              
+                        <label class="radio" >
+                            <input type="radio" name="proce" id="Estado" value="hosp" required>
+                            Hospedar
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="proce" id="Estado" value="res" required>
+                            Reservar
+                        </label>
+                    </div> 
+                
+                <br/><br/>
+                
+    
+            <div class="row">
+                 <div class="span6" style="text-align:center">
+                  <div class="col-md-3">
+                      <button type="submit" name="Buscar" value="Buscar"class="btn btn-info" >
+                        Aceptar
+                      </button>
+                  </div>
+                 </div>
+                    <br>
+                    <br>
+            </div>
+</form><br/><br/><br/><br/>
+
+
+
+
+
+
          <?php
                 
     }
