@@ -57,8 +57,28 @@ if ( !($hotela=filter_input(INPUT_POST, 'hotel')) ){
     ?>
                       </select>
                   </div><br/><br/>
+                  
                        
                   </div> 
+        
+        
+             <div class="form-group">
+                  <label for="ini" class="col-md-2">
+                    Fecha inicio:
+                  </label>
+                  <div class="col-md-10">
+                      <input title="Introduzca La fecha de inicio" type="date" class="form-control" name="ini" id="ini" placeholder="20%" required>
+                  </div><br/><br/>
+                </div> 
+        
+             <div class="form-group">
+                  <label for="fin" class="col-md-2">
+                    Fecha inicio:
+                  </label>
+                  <div class="col-md-10">
+                      <input title="Introduzca la fecha de Fin" type="date" class="form-control" name="fin" id="fin" placeholder="20%" required>
+                  </div><br/><br/>
+                </div> 
     
             <div class="row">
                  <div class="span6" style="text-align:center">
@@ -95,7 +115,7 @@ if ( !($hotela=filter_input(INPUT_POST, 'hotel')) ){
     
           
           
-                       
+     <!--                   
           <div class="btn-group">
   <button type="button" class="btn btn-primary">Filtro</button>
   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -108,10 +128,20 @@ if ( !($hotela=filter_input(INPUT_POST, 'hotel')) ){
   <ul class="dropdown-menu" role="menu">
   
    
-    
+   
     
   </ul>
-</div>   
+</div>   --> 
+     
+             <?php
+
+         
+     
+
+if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
+      $ini=filter_input(INPUT_POST, 'ini');
+      $fin=filter_input(INPUT_POST, 'fin');
+    ?>
              </br></br>
              
              <table id= "tabla" class="table table-bordered" >
@@ -128,14 +158,7 @@ if ( !($hotela=filter_input(INPUT_POST, 'hotel')) ){
                         </tr>
                         
                 </thead>
-           <?php
-
-         
-     
-
-if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
-
-    ?>
+   
                 <tbody align="center">
                     
               
@@ -148,11 +171,7 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
                 </tbody> 
                                    
     
- <?php
-                
-    }
-  
-    ?>
+
                 
             </table>
              
@@ -166,7 +185,11 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
     pager.showPageNav('pager', 'pageNavTransacciones');
     pager.showPage(1);
 </script>      
-             
+         <?php
+                
+    }
+  
+    ?>     
 
 
                   

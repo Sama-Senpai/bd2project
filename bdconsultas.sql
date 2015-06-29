@@ -30,9 +30,7 @@ END //
 DELIMITER ;
 
 //Aqui esta mmgvo
-
 SELECT reserva_hospedaje.cod_hotel,reserva_hospedaje.cod_CH,COUNT(reserva_hospedaje.cod_CH) AS ocupadas,habitacion_hotel.cantidad,habitacion_hotel.descripcion,habitacion_hotel.precio_dia,habitacion_hotel.NroAdicionales
 FROM reserva_hospedaje INNER JOIN habitacion_hotel ON reserva_hospedaje.cod_hotel=habitacion_hotel.Hotel_cod AND reserva_hospedaje.cod_CH=habitacion_hotel.catalogo_habitacion_cod_ch
-WHERE reserva_hospedaje.cod_hotel="1"
+WHERE reserva_hospedaje.cod_hotel="2" AND reserva_hospedaje.rc!="3" AND reserva_hospedaje.f_inicio<"2015-06-08" AND reserva_hospedaje.f_fin>"2015-05-25"
 GROUP BY reserva_hospedaje.cod_CH;
-
