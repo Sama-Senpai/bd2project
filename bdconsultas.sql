@@ -70,6 +70,9 @@ BEGIN
 INSERT INTO reserva_hospedaje (id_reserva, Cliente_CI, cod_hotel, cod_CH, numero_paquete, numero_hab, f_inicio, f_fin, f_reserva, pagado, rc, camas_adicionales, p_cd)
 VALUES (1, ci, hotel_cod, cod_ch, num_paq, num_hab, fh_ini, fh_fin, f_res, pagado, rc, camas_ad, camas_ad*precio_cama);
 
+UPDATE hotel SET numero_camas_disp = numero_camas_disp - camas_ad WHERE cod_hotel = hotel_cod;
+
+
 END //
 DELIMITER ;
 
@@ -135,3 +138,5 @@ DELIMITER ;
 CALL all_rooms_ht (2, 90,'2015-05-25', '2015-06-08');
 CALL occu_rooms_ht (2, 90,'2015-05-25', '2015-06-08');
 -------------------------------------------------------------------------------------------------------------------------------
+
+
