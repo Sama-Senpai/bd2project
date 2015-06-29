@@ -41,7 +41,7 @@ require_once("../BD/conexion.php");
         
 // cambiar metodo
 echo"
-<form role=form method=\"POST\" action=\"../BD/admin/actualizarEstadoApuestas.php\">
+<form role=form method=\"POST\" action=\"../admin/index.php\">
 
 <br>
 
