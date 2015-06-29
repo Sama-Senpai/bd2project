@@ -49,7 +49,7 @@ SELECT reserva_hospedaje.cod_hotel, reserva_hospedaje.cod_CH,COUNT(reserva_hospe
 FROM reserva_hospedaje INNER JOIN habitacion_hotel ON reserva_hospedaje.cod_hotel=habitacion_hotel.Hotel_cod AND 
                                                       reserva_hospedaje.cod_CH=habitacion_hotel.catalogo_habitacion_cod_ch
 WHERE reserva_hospedaje.cod_hotel=hotel_cod AND 
-      reserva_hospedaje.rc!="3" AND 
+      (reserva_hospedaje.rc="1" OR reserva_hospedaje.rc="2" OR  reserva_hospedaje.rc="0") AND
       reserva_hospedaje.f_inicio<fh_fin AND 
       reserva_hospedaje.f_fin>fh_ini
 GROUP BY reserva_hospedaje.cod_CH;
@@ -57,7 +57,7 @@ GROUP BY reserva_hospedaje.cod_CH;
 END //
 DELIMITER ;
 
-CALL sel_rooms (2, '2015-05-25', '2015-06-08')
+CALL sel_rooms (2, '2015-05-25', '2015-06-08');
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------
@@ -77,3 +77,61 @@ CALL resyhos (2233166, 3, 110, 3, 15, '2015-05-25', '2015-05-30', '2015-05-22', 
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------
+
+//Query que busca las habitaciones disponibles segun un hotel y el catalogo de habitacion
+
+DELIMITER //
+CREATE PROCEDURE free_rooms (hotel_cod INT(11), cod_cat INT(11), fh_ini DATE, fh_fin DATE)
+BEGIN 
+      
+SELECT habitacion.n_hab
+FROM habitacion
+WHERE habitacion.cod_hotel=hotel_cod AND 
+      habitacion.cod_CH=cod_cat AND
+      habitacion.n_hab!=( SELECT reserva_hospedaje.numero_hab
+                          FROM reserva_hospedaje
+                          WHERE reserva_hospedaje.cod_hotel=hotel_cod AND 
+                                reserva_hospedaje.cod_CH=cod_cat AND
+                                (reserva_hospedaje.rc="1" OR reserva_hospedaje.rc="2" OR  reserva_hospedaje.rc="0") AND
+                                reserva_hospedaje.f_inicio<fh_fin AND reserva_hospedaje.f_fin>fh_ini);
+
+
+END //
+DELIMITER ;
+
+
+CALL free_rooms (2, 90,'2015-05-25', '2015-06-08');
+
+
+------------------------------------------------------------------------------------------------------------------------------
+//Devuelve las habitaciones ocupadas de un hotel y catalogo
+DELIMITER //
+CREATE PROCEDURE occu_rooms_ht (hotel_cod INT(11), cod_cat INT(11), fh_ini DATE, fh_fin DATE)
+BEGIN 
+      
+SELECT reserva_hospedaje.numero_hab
+FROM reserva_hospedaje
+WHERE reserva_hospedaje.cod_hotel=hotel_cod AND 
+   reserva_hospedaje.cod_CH=cod_cat AND
+   (reserva_hospedaje.rc="1" OR reserva_hospedaje.rc="2" OR  reserva_hospedaje.rc="0") AND
+   reserva_hospedaje.f_inicio<fh_fin AND reserva_hospedaje.f_fin>fh_ini;
+
+END //
+DELIMITER ;
+
+//Devuelve todas las habitaciones de un hotel por catalogo
+DELIMITER //
+CREATE PROCEDURE all_rooms_ht (hotel_cod INT(11), cod_cat INT(11), fh_ini DATE, fh_fin DATE)
+BEGIN 
+      
+SELECT habitacion.n_hab
+FROM habitacion
+WHERE habitacion.cod_hotel=hotel_cod AND 
+      habitacion.cod_CH=cod_cat;
+
+END //
+DELIMITER ;
+
+CALL all_rooms_ht (2, 90,'2015-05-25', '2015-06-08');
+CALL occu_rooms_ht (2, 90,'2015-05-25', '2015-06-08');
+-------------------------------------------------------------------------------------------------------------------------------
