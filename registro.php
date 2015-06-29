@@ -20,7 +20,7 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-lg-8">
-            <?php require_once('./scripts/alertas.php'); ?>
+           <?php /*   require_once('./scripts/alertas.php'); */  ?>  
             
             <form role="form" method="POST" action="BD/Usuarios/usuarios_insertar.php">              
                 <div class="form-group">
