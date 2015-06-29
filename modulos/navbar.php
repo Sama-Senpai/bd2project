@@ -18,7 +18,7 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-          <li><a href="">Reserva/Hospedaje</a></li>
+          <li><a href="reservaHospedaje1.php">Reserva/Hospedaje</a></li>
           <li><a href="">Confirmacion</a></li>
           <li><a href="">Paquetes</a></li>
         <li class="dropdown">
