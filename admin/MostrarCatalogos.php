@@ -21,6 +21,9 @@
          
 <?php 
 
+        
+        
+        
 echo "<div class=\"row\">";
 echo "<div class=\"col-lg-12\">";
       echo "  <div class=\"col-lg-12\">";
@@ -30,29 +33,26 @@ echo "<div class=\"col-lg-12\">";
 echo "</div>";
 $pendiente= 0;
 require_once("../BD/conexion.php");
-        $sql="SELECT * from `Apuestas` WHERE `Estado`='$pendiente'";
+        $sql="SELECT * from `catalogo_paquete` ";
         $datos = mysql_query($sql);
         if (!$datos)
             echo "no entro bien x.x";
  
         
-
+// cambiar metodo
 echo"
 <form role=form method=\"POST\" action=\"../BD/admin/actualizarEstadoApuestas.php\">
 
-<b>Seleccione a continuacion las apuestas que desea validar:</b><br>
+<br>
 
 <table id=Validar class=\"table table-bordered\">";
       echo "<thead>
            <tr>
                                 
-                 <th>Id Apuesta</th>
-                 <th>Id Usuario</th>
-                 <th>Id Mesa</th>
-                 <th>Id Juego</th>
-                 <th>Monto</th>
-                 <th>Fecha</th>
-                 <th>Opciones</th>
+                 <th>Codigo de paquete</th>
+                 <th>Vigencia</th>
+                 <th>Descripcion</th>
+                 <th>Descuento</th>
                                 
                                 
            </tr>
@@ -61,15 +61,15 @@ echo"
 
 while ($renglonConsulta = mysql_fetch_assoc($datos)){
       echo "<tr>";
-      echo "<td>". $renglonConsulta['Id']."</td>";
-      echo "<td>". $renglonConsulta['Id_user']."</td>";
-      echo "<td>". $renglonConsulta['Id_mesa']."</td>";
-      echo "<td>". $renglonConsulta['Id_juego']."</td>";
-      echo "<td>". $renglonConsulta['Monto']."</td>";
-      echo "<td>". $renglonConsulta['Fecha']."</td>";
+      echo "<td>". $renglonConsulta['cod_cp']."</td>";
+      echo "<td>". $renglonConsulta['vigencia']."</td>";
+      echo "<td>". $renglonConsulta['descripcion']."</td>";
+      echo "<td>". $renglonConsulta['descuento']."</td>";
+      //echo "<td>". $renglonConsulta['Monto']."</td>";
+     // echo "<td>". $renglonConsulta['Fecha']."</td>";
      // echo "<td><input type=checkbox name=". $renglonConsulta['Id']." >". $renglonConsulta['Id_user']."<br></td>"; 
-      echo "<td><Input type = 'Radio' name =". $renglonConsulta['Id']." value= 'valida'>Validar&nbsp&nbsp";
-      echo "<Input type = 'Radio' name =". $renglonConsulta['Id']." value= 'no valida'>No Validar</td>";
+     // echo "<td><Input type = 'Radio' name =". $renglonConsulta['Id']." value= 'valida'>Validar&nbsp&nbsp";
+     // echo "<Input type = 'Radio' name =". $renglonConsulta['Id']." value= 'no valida'>No Validar</td>";
 
 
       
@@ -80,7 +80,10 @@ echo "
 </table>
 
 <div class=\"span6\" style=\"text-align:center\">
-<input TYPE=submit class=\"btn btn-default\" NAME=OK VALUE=\"Continuar\"><BR>
+
+    <button type=\"submit\" name=\"Crear\" class=\"btn btn-info\" >
+                        Volver
+    </button>
 </div>
 </FORM>";         
 echo "</div>";
