@@ -29,3 +29,10 @@ VALUES (hotel_cod, cat_hab, precio, cant, n_adi, descrp);
 END //
 DELIMITER ;
 
+//Aqui esta mmgvo
+
+SELECT reserva_hospedaje.cod_hotel,reserva_hospedaje.cod_CH,COUNT(reserva_hospedaje.cod_CH) AS ocupadas,habitacion_hotel.cantidad,habitacion_hotel.descripcion,habitacion_hotel.precio_dia,habitacion_hotel.NroAdicionales
+FROM reserva_hospedaje INNER JOIN habitacion_hotel ON reserva_hospedaje.cod_hotel=habitacion_hotel.Hotel_cod AND reserva_hospedaje.cod_CH=habitacion_hotel.catalogo_habitacion_cod_ch
+WHERE reserva_hospedaje.cod_hotel="1"
+GROUP BY reserva_hospedaje.cod_CH;
+
