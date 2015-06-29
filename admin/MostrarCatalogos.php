@@ -64,7 +64,7 @@ while ($renglonConsulta = mysql_fetch_assoc($datos)){
       echo "<td>". $renglonConsulta['cod_cp']."</td>";
       echo "<td>". $renglonConsulta['vigencia']."</td>";
       echo "<td>". $renglonConsulta['descripcion']."</td>";
-      echo "<td>". $renglonConsulta['descuento']."</td>";
+      echo "<td>". $renglonConsulta['descuento']."%</td>";
       //echo "<td>". $renglonConsulta['Monto']."</td>";
      // echo "<td>". $renglonConsulta['Fecha']."</td>";
      // echo "<td><input type=checkbox name=". $renglonConsulta['Id']." >". $renglonConsulta['Id_user']."<br></td>"; 
