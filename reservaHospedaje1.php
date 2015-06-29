@@ -234,7 +234,7 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
                   <label for="tipo" class="col-md-2">
                    Introduzca el Tipo de habitacion:
                   </label>   
-                  <div class="col-md-10">
+                  <div class="col-md-5">
                       <select name="tipo" onchange=>
                    <option value="0">Seleccione un Tipo</option>
                           
@@ -247,20 +247,28 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
  
     ?>
                       </select>
-                  </div><br/><br/>
+                  </div>
+                       <div class="form-group">
+                  <label for="cantidad" class="col-md-2">
+                    Cantidad:
+                  </label>   
+                     <div class="col-md-3">
+                      <input title="Cantidad de habitaciones" type="text" class="form-control" name="cantidad" id="cantidad" placeholder="232" pattern="[-+]+[0-9]+"  required>
+                    </div><br/><br/>
                        
                   </div> 
       
-             <div class="col-md-20">
-             <div class="form-group">
-                  <label for="cant" class="col-md-2">
-                    Cantidad:
+           
+      
+       <div class="form-group">
+                  <label for="adic" class="col-md-2">
+                    Numero Camas Adicionales:
                   </label>
                   <div class="col-md-25">
-                      <input title="Introduzca el numero de habitaciones" type="text" class="form-control" name="cant" id="cant" placeholder="3" required>
+                      <input title="Introduzca el numero de Camas adicionales" type="text" class="form-control" name="adic" id="adic" placeholder="3" required>
                   </div><br/><br/>
                 </div> 
-             </div>
+            
       
       
         <div class="form-group">
@@ -292,7 +300,7 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
             <div class="row">
                  <div class="span6" style="text-align:center">
                   <div class="col-md-3">
-                      <button type="submit" name="Buscar" value="Buscar"class="btn btn-info" >
+                      <button type="submit" name="Buscar" value="Buscar" class="btn btn-info" >
                         Aceptar
                       </button>
                   </div>
@@ -300,7 +308,19 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
                     <br>
                     <br>
             </div>
-</form><br/><br/><br/><br/>
+</form><br/><br/>
+
+               <div class="row">
+                 <div class="span6" style="text-align:center">
+                  <div class="col-md-3">
+                      <button type="submit" name="Buscar" value="Buscar" class="btn btn-success" >
+                        Registrar Usuario
+                      </button>
+                  </div>
+                 </div>
+                    <br>
+                    <br>
+            </div>
 
 
 
