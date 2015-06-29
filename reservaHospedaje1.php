@@ -141,6 +141,13 @@ if ( !($hotela=filter_input(INPUT_POST, 'hotel')) ){
 if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
       $ini=filter_input(INPUT_POST, 'ini');
       $fin=filter_input(INPUT_POST, 'fin');
+    
+      $query = "CALL sel_rooms('$hotela','$ini','$fin')";
+      
+       $datos = mysql_query($query);
+       
+      
+      
     ?>
              </br></br>
              
@@ -155,19 +162,45 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
                                 <th>Precio</th>
                                 <th>Cantidad</th>
                                 <th>Camas Adicinales</th>
+                               
                         </tr>
                         
                 </thead>
    
                 <tbody align="center">
                     
-              
+              <?php                                       
+                 while ($registro= mysql_fetch_row($datos)){
+                      
+                        $contador=0;
+                        
+                        
+                                foreach ($registro as $clave){
+
+                                 $array[$contador]= $clave;  
+                                 $contador ++;                        
+                                } 
+                      
+              ?>
+                    
+                      <tr>
+                                <td data-title="Descripción"> <?php echo $array [4]; ?>  </td>
+                                <td data-title="Precio"><?php echo $array [5]; ?> </td>
+                                <td data-title="Cantidad" class="numeric"><?php echo $cuenta= $array [3] - $array [2]; ?></td>
+                                <td data-title="Camas Adicinales" class="numeric"> <div align="center"><?php echo $array [6]; ?> </div> </td>
+                               
+                        </tr>   
+                    
+                    
                         
                         
                 </tbody>
                         
- 
-                        
+               <?php                                       
+                  }
+                      
+                ?>
+                      
                 </tbody> 
                                    
     
