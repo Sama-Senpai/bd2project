@@ -173,13 +173,16 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
                  while ($registro= mysql_fetch_row($datos)){
                       
                         $contador=0;
-                        
+                        $contador2=0;
                         
                                 foreach ($registro as $clave){
 
                                  $array[$contador]= $clave;  
+                               
                                  $contador ++;                        
                                 } 
+                                 $array2[$contador2]=$array[1];
+                                 $contador2++;
                       
               ?>
                     
