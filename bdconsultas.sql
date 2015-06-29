@@ -61,4 +61,16 @@ CALL sel_rooms (2, '2015-05-25', '2015-06-08')
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------
-//
+//Query de reservar
+
+DELIMITER //
+CREATE PROCEDURE resyhos (ci INT(11), hotel_cod INT(11), cod_ch INT(11), num_paq INT(11), num_hab INT(11), fh_ini DATE, fh_fin DATE, f_res DATE, pagado INT(11), rc INT(11), camas_ad INT(11), precio_cama INT(11))
+BEGIN 
+
+INSERT INTO reserva_hospedaje (id_reserva, Cliente_CI, cod_hotel, cod_CH, numero_paquete, numero_hab, f_inicio, f_fin, f_reserva, pagado, rc, camas_adicionales, p_cd)
+VALUES (1, ci, hotel_cod, cod_ch, num_paq, num_hab, fh_ini, fh_fin, f_res, pagado, rc, camas_ad, camas_ad*precio_cama);
+
+END //
+DELIMITER ;
+
+CALL resyhos (2233166, 3, 110, 3, 15, '2015-05-25', '2015-05-30', '2015-05-22', 1500, 1, 3, 2500);
