@@ -242,4 +242,95 @@ if ( $hotela=filter_input(INPUT_POST, 'hotel') ){
       
    
 
- 
+         <table width="300" border="0" cellspacing="0" cellpadding="1"> 
+<tr bgcolor="blue" align="center"> 
+<td><b><font color="#FFFFFF">Informacion de Reserva/Hospedaje</font></b></td> 
+</tr> 
+<tr bgcolor="blue"> 
+<td> 
+<table width="100%" border="0" cellspacing="0" cellpadding="5"> 
+<tr bgcolor="#FFFFFF"> 
+<td>Nombre hotel
+    </td> 
+</tr> 
+<tr bgcolor="#FFFFFF"> 
+<td>----------------
+    </td> 
+</tr> 
+<tr bgcolor="#FFFFFF"> 
+<td>Precio/Habitacion:
+    </td> 
+</tr> 
+<tr bgcolor="#FFFFFF"> 
+<td>Numero Dias:
+    </td> 
+</tr> 
+<tr bgcolor="#FFFFFF"> 
+<td>Numero Hab:
+    </td> 
+</tr>
+<tr bgcolor="#FFFFFF"> 
+<td>Descuento:
+    </td> 
+</tr>
+<tr bgcolor="#FFFFFF"> 
+<td>Monto Total:
+    </td> 
+</tr>
+<tr bgcolor="#FFFFFF"> 
+<td>Monto Pagado:
+    </td> 
+</tr>
+<tr bgcolor="#FFFFFF"> 
+<td>----------------
+    </td> 
+</tr> 
+<tr bgcolor="#FFFFFF"> 
+<td>Info Reserva/hospedaje:
+    </td> 
+</tr>
+<tr bgcolor="#FFFFFF"> 
+<td>----------------
+    </td> 
+</tr>
+<tr bgcolor="#FFFFFF"> 
+<td>Habitaciones:
+    </td> 
+</tr>
+<tr bgcolor="#FFFFFF"> 
+<td>Camas/hab:
+    </td> 
+</tr>
+<tr bgcolor="#FFFFFF"> 
+<td>Nombre Paquete:
+    </td> 
+</tr>
+<tr bgcolor="#FFFFFF"> 
+<td>----------------
+    </td> 
+</tr> 
+<tr bgcolor="#FFFFFF"> 
+<td>Info Cliente:
+    </td> 
+</tr>
+<tr bgcolor="#FFFFFF"> 
+<td>----------------
+    </td> 
+</tr>
+<tr bgcolor="#FFFFFF"> 
+<td>Nombre:
+    </td> 
+</tr>
+<tr bgcolor="#FFFFFF"> 
+<td>Ci: 
+    </td> 
+</tr>
+<tr bgcolor="#FFFFFF"> 
+<td>--* ID de reserva: *---
+    </td> 
+</tr>
+
+</table> 
+</td> 
+</tr> 
+</table>

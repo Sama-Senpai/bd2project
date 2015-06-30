@@ -1,0 +1,35 @@
+//////////////////////////////////////////77
+
+CABRAL HAZ UN QUERY QUE TE TRAIGA LOS NUMERO DE HABITACIONES DISPONIBLES INDIVIDUALMENTE O LO QUE PUEDAS CON ESO 
+LO IMPORTANTE ES QUE ME DE UNA REFERENCIA DE QUE HABITACIONES DARLE 
+
+/////////////////////////////////////////////
+
+
+cedula post validad que este registrado
+
+cod_hotel post
+
+cod_CH post
+
+
+numeropaquete post
+
+numero habitacion calcular en 2 ////////////////////////////////////////////////////
+
+fechaini post
+
+fechafin post
+
+fechaactual calcular en 2
+
+pagado calcular en 2
+
+rc  si es reserva 0 si es confirmacion 1 si se cancela o ya paso 3
+
+camasadicionales  post validad
+
+precio  calcular con lo que me pasa el post en 2
+
+
+

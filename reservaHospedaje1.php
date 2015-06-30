@@ -10,7 +10,9 @@
       
         
         
-<?php require_once('./modulos/navbar.php'); ?>         
+<?php require_once('./modulos/navbar.php'); ?>    
+
+
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
@@ -19,7 +21,7 @@
         <p>Ingresa en la sala que desees. Disfruta de diferentes deportes.</p>
       </div>
     </div>
-
+ <?php require_once('./scripts/alertas.php'); ?>
     
     
           
@@ -28,13 +30,13 @@
       <?php
 
 
-if ( !($hotela=filter_input(INPUT_POST, 'hotel')) ){
+if ( !($hotela=filter_input(INPUT_POST, 'hotel')) && !($hotela=filter_input(INPUT_GET, 'hotel')) ){
 
     ?>
     <form role="form" method="POST" action="reservaHospedaje1.php">
         
                 <?php
-                
+             
 
     
     $query1 = "SELECT * FROM `hotel`";
@@ -136,11 +138,27 @@ if ( !($hotela=filter_input(INPUT_POST, 'hotel')) ){
              <?php
 
          
-     
-
-if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
-      $ini=filter_input(INPUT_POST, 'ini');
-      $fin=filter_input(INPUT_POST, 'fin');
+     if(filter_input(INPUT_POST, 'hotel')){
+          $hotela=filter_input(INPUT_POST, 'hotel');
+          $ini=filter_input(INPUT_POST, 'ini');
+          $fin=filter_input(INPUT_POST, 'fin');
+     }
+     if(filter_input(INPUT_GET,"hotel")){
+      $hotela=filter_input(INPUT_GET,"hotel");
+      $ini=filter_input(INPUT_GET,"ini");
+      $fin=filter_input(INPUT_GET,"fin");
+     }
+    
+if ($hotela) {
+       
+    
+      
+      
+      
+        $query1 = "SELECT * 
+    FROM `paquetes` INNER JOIN `catalogo_paquete` ON `paquetes`.`catalogo_paquete_cod_cp`=`catalogo_paquete`.`cod_cp`
+   WHERE `paquetes`.`cod_hotel`='$hotela' AND `paquetes`.`vigencia`='1'";
+    $busqueda1 = mysql_query($query1);
     
       $query = "CALL sel_rooms('$hotela','$ini','$fin')";
       
@@ -174,7 +192,7 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
                       
                         $contador=0;
                         $contador2=0;
-                        $contador3=0;
+                      
                         
                                 foreach ($registro as $clave){
 
@@ -182,8 +200,7 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
                                
                                  $contador ++;                        
                                 } 
-                               $array2[$contador2]=$array[4];
-                                 
+                               $array2[$contador2]=$array[4];                             
                                  $array3[$contador2]=$array[1];
                                  $contador2++;
                       
@@ -204,6 +221,7 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
                         
                <?php                                       
                   }
+                  mysql_free_result($datos);
                       
                 ?>
                       
@@ -227,16 +245,77 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
 
 
 
-  <form role="form" method="POST" action="">
+<form role="form" method="POST" action="resevaHospedaje2.php">
         
-               
+      
+      
+                       
+                    <div class="form-group">
+                  <label for="Hotel" class="col-md-2">
+                     Hotel:
+                  </label>   
+                  <div class="col-md-10">
+                      <select name="hotel">
+                   
+                          
+    <?php
+                        echo "<option value=".$hotela.">".$hotela."</option>";  
+                         echo "<option value=".$hotela." tipe >Cambiar</option>";
+    
+    ?>
+                      </select>
+                  </div><br/><br/>
+                       
+                  </div> 
+      
+                         
+                    <div class="form-group">
+                  <label for="Hotel" class="col-md-2">
+                   Fecha Inicio:
+                  </label>   
+                  <div class="col-md-10">
+                      <select name="ini">
+                   
+                          
+    <?php
+                        echo "<option value=".$ini.">".$ini."</option>";
+                        echo "<option value=".$ini." tipe >Cambiar</option>";
+    
+    ?>
+                      </select>
+                  </div><br/><br/>
+                       
+                  </div> 
+                
+                             
+                    <div class="form-group">
+                  <label for="Hotel" class="col-md-2">
+                   Fecha Fin:
+                  </label>   
+                  <div class="col-md-10">
+                      <select name="fin">
+                   
+                          
+    <?php
+                        echo "<option value=".$fin.">".$fin."</option>";  
+                        echo "<option value=".$fin." tipe >Cambiar</option>";
+    
+    ?>
+                      </select>
+                  </div><br/><br/>
+                       
+                  </div> 
+      
+
+      
+      
                    <div class="form-group">
                   <label for="tipo" class="col-md-2">
                    Introduzca el Tipo de habitacion:
                   </label>   
                   <div class="col-md-5">
                       <select name="tipo" onchange=>
-                   <option value="0">Seleccione un Tipo</option>
+                          <option value="0" >Seleccione un Tipo</option>
                           
     <?php
     $j=0;
@@ -253,8 +332,36 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
                     Cantidad:
                   </label>   
                      <div class="col-md-3">
-                      <input title="Cantidad de habitaciones" type="text" class="form-control" name="cantidad" id="cantidad" placeholder="232" pattern="[-+]+[0-9]+"  required>
+                      <input title="Cantidad de habitaciones" type="text" class="form-control" name="cantidad" id="cantidad" placeholder="232" pattern="[0-9]"  required>
                     </div><br/><br/>
+                       
+                  </div> 
+                       
+                       
+                       
+       <?php
+                
+
+    
+  
+     ?>          
+                   <div class="form-group">
+                  <label for="paquete" class="col-md-2">
+                      Paquete:
+                  </label>   
+                  <div class="col-md-10">
+                      <select name="paquete" onchange=>
+                   <option value="0">Seleccione un Paquete</option>
+                          
+    <?php
+ 
+    while ($datos14 = mysql_fetch_assoc($busqueda1)){
+                        echo "<option value=".$datos14['numero_paquete'].">".$datos14['descripcion']."</option>";                
+    }
+   
+    ?>
+                      </select>
+                  </div><br/><br/>
                        
                   </div> 
       
@@ -265,7 +372,7 @@ if ( ($hotela=filter_input(INPUT_POST, 'hotel')) ){
                     Numero Camas Adicionales:
                   </label>
                   <div class="col-md-25">
-                      <input title="Introduzca el numero de Camas adicionales" type="text" class="form-control" name="adic" id="adic" placeholder="3" required>
+                      <input title="Introduzca el numero de Camas adicionales" type="text" class="form-control" name="adic" id="adic" placeholder="3"  required>
                   </div><br/><br/>
                 </div> 
             

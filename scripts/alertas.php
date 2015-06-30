@@ -1,31 +1,29 @@
 <?php
         
-if(isset(filter_input(INPUT_GET,"errorCode",FILTER_SANITIZE_NUMBER_INT)) && isset(filter_input(INPUT_GET,"errorType",FILTER_SANITIZE_NUMBER_INT))){
-    $nroError=filter_input(INPUT_GET,"errorCode",FILTER_SANITIZE_NUMBER_INT);
-    $tipoError=filter_input(INPUT_GET,"errorType",FILTER_SANITIZE_NUMBER_INT);
-    
-    //echo "Nro error: ".$nroError ." ";
-    //echo "Tipo error: ".$tipoError;
-        echo "holaaa";
+if(filter_input(INPUT_GET,"errorCode")){
+    $nroError=filter_input(INPUT_GET,"errorCode");
+    $tipoError=filter_input(INPUT_GET,"errorType");
+  
+       
     
     //Agregar en el switch los errores que hagan falta
     
     
     switch ($nroError) {
         case 1:
-            $error = "Error: Usuario incorrecto";
+            $error = "Error: Usuario no Registrado Por favor Vaya a la pagina de registrar Usuario";
             break;
         case 2:
-            $error = "Error: Password incorrecto";
+            $error = "Error: El Hotel Seleccionado ya no posee Camas adicionales";
             break;
         case 3:
-            $error = "Error al logearse, intentelo mas tarde";
+            $error = "El numero de camas Adicionales Sobrepasa al las aceptadas en la habitacion";
             break;
         case 4:
-            $error = "Debes iniciar sesión para poder continuar";
+            $error = "La fecha de inicio no puede ser mayor que la de Fin";
             break; 
         case 5:
-            $error = "Usuario registrado satisfactoriamente";
+            $error = "Tiene que ingresar un tipo de Habitacion";
             break;
         case 6:
             $error = "Complete todos los campos";
