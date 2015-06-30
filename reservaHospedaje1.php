@@ -420,7 +420,7 @@ if ($hotela) {
                <div class="row">
                  <div class="span6" style="text-align:center">
                   <div class="col-md-3">
-                      <button type="submit" name="Buscar" value="Buscar" class="btn btn-success" >
+                      <button type="submit" name="Buscar" value="Buscar" onclick="javascript:window.open('http://localhost/bd2project/registro_cliente.php','','width=800,height=500,left=50,top=50,toolbar=yes');" class="btn btn-success" >
                         Registrar Usuario
                       </button>
                   </div>

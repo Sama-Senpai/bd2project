@@ -15,12 +15,13 @@
         $b_clase_b=filter_input(INPUT_POST, 'b_clase_b');
         $b_clase_s=filter_input(INPUT_POST, 'cb_clase_sam');
         $Maxper=filter_input(INPUT_POST, 'Maxper');
+        $desc=filter_input(INPUT_POST, 'desp');
         
         
            if( $bandera==0 ){
                 // SQL
-                $query = mysql_query("INSERT INTO `catalogo_habitacion`(`cod_ch`, `king`, `queen`, `b_clase_a`, `matrimonial`, `individual`, `b_clase_b`, `b_clase_s`, `Maxper`)                                  VALUES(
-                                            '$cod_ch','$king','$queen','$b_clase_a','$matrimonial','$individual','$b_clase_b','$b_clase_s','$Maxper')
+                $query = mysql_query("INSERT INTO `catalogo_habitacion`(`cod_ch`, `king`, `queen`, `b_clase_a`, `matrimonial`, `individual`, `b_clase_b`, `b_clase_s`, `Maxper`, `descripcion`)                                  VALUES(
+                                            '$cod_ch','$king','$queen','$b_clase_a','$matrimonial','$individual','$b_clase_b','$b_clase_s','$Maxper','$desc')
                                     ");
 
                 if(!$query){

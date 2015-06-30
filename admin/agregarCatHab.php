@@ -31,6 +31,14 @@
           
             <form role="form" method="POST" action="../BD/admin/nuevoCatHab.php">
                 <div class="form-group">
+                  <label for="desp" class="col-md-2">
+                    Descripcion:
+                  </label>
+                  <div class="col-md-10">
+                      <input title="Introduzca un nombre para describr la habitacion" type="text" class="form-control" name="desp" id="desp" placeholder="Habitacion Multiple" required>
+                  </div><br/><br/>
+                </div>
+                <div class="form-group">
                   <label for="cod_ch" class="col-md-2">
                     Codigo:
                   </label>

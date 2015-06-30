@@ -6,7 +6,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <a class="navbar-brand" href="./index.php"><img src=" ../img/roya100.png">RoyalBets</a>
+        <a class="navbar-brand" href="./index.php"><img src=" ../img/roya100.png">Hoteles Royal</a>
     </div>
     <div class="navbar-collapse collapse">
         
@@ -17,7 +17,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestión Hotel<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="">Editar</a></li>
-            <li><a href="agregarHabitacionInd.php">Agregar Habitacion</a></li>            
+            <li><a href="agregarHabitacionxHotel.php">Agregar Habitacion</a></li>            
             <li><a href="paquetexhotel.php">Agregar Paquetes</a></li>
             <li><a href="">Editar Habitacion</a></li>
             <li><a href="">Editar Paquetes</a></li>  
@@ -53,9 +53,7 @@
         ?> 
                     
                     <p class="navbar-text navbar-right">Bienvenido <a href="../cuenta.php" role="button"></a>
-                        
-                      
-                        <a class="btn btn-xs btn-danger" href="" role="button">Cerrar sesión</a>
+           
                         <a class="btn btn-xs btn-warning" href="../index.php" role="button">Salir</a>
                     </p>
                         

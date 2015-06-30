@@ -14,7 +14,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <a class="navbar-brand" href="index.php"><img src=" img/roya100.png">RoyalBets</a>
+        <a class="navbar-brand" href="index.php"><img src=" img/roya100.png">Hoteles Royal</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">

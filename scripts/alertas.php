@@ -26,7 +26,7 @@ if(filter_input(INPUT_GET,"errorCode")){
             $error = "Tiene que ingresar un tipo de Habitacion";
             break;
         case 6:
-            $error = "Complete todos los campos";
+            $error = "Se añadio correctamente el campo";
             break;
         case 7:
             $error = "Atención, Usted no se puede registrar a Royal Bets, es menor de 18 años";

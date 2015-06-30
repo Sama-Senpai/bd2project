@@ -33,7 +33,7 @@ e<?php require_once('./modulos/header.php'); ?>
             <div class="col-lg-3">
               <h4>Agregar Habitacion</h4>
               <img src=" ../img/mesa.png">
-              <p><br><?php  echo "<a class='btn btn-default' href='agregarHabitacionInd.php'> Ir &raquo; </a>"; ?></p>
+              <p><br><?php  echo "<a class='btn btn-default' href='agregarHabitacionxHotel.php'> Ir &raquo; </a>"; ?></p>
             </div>
             <div class="col-lg-3">
               <h4>Agregar Paquete</h4>
