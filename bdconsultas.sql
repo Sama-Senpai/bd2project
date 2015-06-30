@@ -138,5 +138,20 @@ DELIMITER ;
 CALL all_rooms_ht (2, 90,'2015-05-25', '2015-06-08');
 CALL occu_rooms_ht (2, 90,'2015-05-25', '2015-06-08');
 -------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+//Devuelve las habitaciones de una persona que aun no ha confirmado
+DELIMITER //
+CREATE PROCEDURE conf_rooms (hotel_cod INT(11), ci INT(11), fh_ini DATE, fh_fin DATE)
+BEGIN 
+      
+SELECT reserva_hospedaje.numero_hab, habitacion.nPuerta
+FROM reserva_hospedaje INNER JOIN habitacion ON reserva_hospedaje.numero_hab=habitacion.n_hab
+WHERE reserva_hospedaje.cod_hotel=hotel_cod AND 
+   reserva_hospedaje.Cliente_CI=ci AND
+   reserva_hospedaje.rc="0" AND
+   reserva_hospedaje.f_inicio<=fh_fin AND reserva_hospedaje.f_fin>=fh_ini;
 
+END //
+DELIMITER ;
 
+CALL conf_rooms (2, 2233166,'2015-05-25', '2015-06-08');
