@@ -248,7 +248,7 @@ VALUES ('$cod', '$cedula', '$hotel', '$tipo', '$paquete', '$arrayHab[$i]', '$ini
     <div class="container">
         
         
-         <table width="300" border="0" cellspacing="0" cellpadding="1"> 
+<table width="300" border="0" cellspacing="0" cellpadding="1"> 
 <tr bgcolor="blue" align="center"> 
 <td><b><font color="#FFFFFF">Informacion de Reserva/Hospedaje</font></b></td> 
 </tr> 
@@ -356,7 +356,16 @@ echo $montoTotalCon;
 </td> 
 </tr> 
 </table>
-        
+  <button style=" position:absolute;
+    left: 500px;
+    top: 600px;
+    " type="submit" onclick = "location='http://localhost/bd2project/reservaHospedaje1.php?hotel=<?php echo $hotel; ?>&ini=<?php echo $ini; ?>&fin=<?php echo $fin; ?>&cedula=<?php echo $cedula; ?>'" class="btn btn-success" >Hacer otra</button>
+                     
+        <button style=" position:absolute;
+    left: 500px;
+    top: 650px;
+    " type="submit" onclick = "location='http://localhost/bd2project/reservaHospedaje1.php'" class="btn btn-success" >Volver a Hotel</button>
+       
         
     </div>
       
