@@ -19,8 +19,8 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
           <li><a href="reservaHospedaje1.php">Reserva/Hospedaje</a></li>
-          <li><a href="">Confirmacion</a></li>
-          <li><a href="">Paquetes</a></li>
+          <li><a href="confirmacionReserva.php">Confirmacion</a></li>
+          <li><a href="MostrarCatalogos.php">Paquetes</a></li>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Información<b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -48,7 +48,7 @@
               
                         
             
-                    <form class="navbar-form navbar-right" action="scripts/usuarios/login.php" method="POST">
+                    <form class="navbar-form navbar-right" action="admin/index.php" method="POST">
                        
                         <button type="submit" class="btn btn-success" >Administracion</button>
                      

@@ -25,7 +25,7 @@
         <div class="col-lg-3">
           <h2>Inicio del sitio</h2>
           <p>En este momento está ubicado en el área administrativa, si desea volver a la parte visible por los usuarios, presione "Salir" en el menú superior.</p>
-          <img src=" ../img/guia.png">
+          <img src=" ../img/guia2.png">
         </div>  
           <h2>Herramientas de Agregacion</h2>
         <div class="col-lg-9">     
@@ -37,12 +37,12 @@
             </div>
             <div class="col-lg-3">
               <h4>Catalogo Habitacion</h4>
-              <img src=" ../img/juegos.png">
+              <img src=" ../img/agregarHab.jpg">
               <p><br><?php echo "<a class='btn btn-default' href='agregarCatHab.php'> Ir &raquo; </a>"; ?></p>
             </div>
              <div class="col-lg-3">
               <h4>Catalogo Paquetes</h4>
-              <img src=" ../img/apuesta.png">
+              <img src=" ../img/agregarPa.png">
               <p><br><?php echo "<a class='btn btn-default' href='agregarCatPaq.php'> Ir &raquo; </a>"; ?></p>
             </div>
           
@@ -53,26 +53,26 @@
           <div class="col-lg-3">
           <h2>Ayuda</h2>
           <p>En la seccion "Gestion de hotel" Podra agregar habitaciones y paquetes a los hoteles, asi como editarlos.</p>
-          <img src=" ../img/guia.png">
+          <img src=" ../img/guia3.png">
         </div>
           <h2>Herramientas de Editado</h2>
           
             <div class="col-lg-9"> 
                <div class="col-lg-3">
               <h4>Gestion de hotel</h4>
-              <img src=" ../img/moneda.png">
+              <img src=" ../img/gestionHotel.jpg">
               <p><br><?php echo "<a class='btn btn-default' href='gestionHotel.php'> Ir &raquo; </a>"; ?></p>
             </div>
                 
              <div class="col-lg-3">
               <h4>Editar Cat Habitacione</h4>
-              <img src=" ../img/moneda.png">
+              <img src=" ../img/ediHab.jpg">
               <p><br><?php echo "<a class='btn btn-default' href=''> Ir &raquo; </a>"; ?></p>
             </div>
                 
               <div class="col-lg-3">
               <h4>Editar Cat Paquetes</h4>
-              <img src=" ../img/moneda.png">
+              <img src=" ../img/editPa.jpg">
               <p><br><?php echo "<a class='btn btn-default' href=''> Ir &raquo; </a>"; ?></p>
             </div>
                 

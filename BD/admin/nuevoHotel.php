@@ -26,12 +26,14 @@
 
                 if(!$query){
                     echo 'Error al insertar un producto';
+                     header("Location:../../admin/agregarHotel.php?errorCode=9&errorType=1");
                      
                 }else{
                     echo 'Guardo Correctamente';
+                     header("Location:../../admin/agregarHotel.php?errorCode=6&errorType=3");
                    
                 }
-                header("Location:../../admin/agregarHotel.php?errorCode=12&errorType=1");
+               
            }  
               
 ?>

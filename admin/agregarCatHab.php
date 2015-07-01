@@ -13,6 +13,7 @@
         <p>Creación: Para crear una nueva habitacion en el catalogo debe llenar los siguientes campos</p>
       </div>
     </div>
+     <?php require_once('../scripts/alertas.php'); ?>
 
 <br>
     <div class="container">
@@ -140,7 +141,9 @@
                   <div class="col-md-2">
                   </div>                  
                   <div class="col-md-3">
-                      <button type="submit" name="Crear" class="btn btn-info" >
+                      <button type="submit" style=" position:absolute;
+    left: 250px;
+    " name="Crear" class="btn btn-info" >
                         Crear
                       </button>
                   </div>

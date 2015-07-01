@@ -14,18 +14,7 @@
 
 
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Selección de Mesas</h1>
-        <p>Ingresa en la sala que desees. Disfruta de diferentes deportes.</p>
-      </div>
-    </div>
- <?php require_once('./scripts/alertas.php'); ?>
-    
-    
-          
-    <div class="container">
+   
         
       <?php
 
@@ -33,6 +22,21 @@
 if ( !($hotela=filter_input(INPUT_POST, 'hotel')) && !($hotela=filter_input(INPUT_GET, 'hotel')) ){
 
     ?>
+         <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Reserva y Hospedaje</h1>
+        <p>Ingrese los datos del hotel y la fecha para comprobar la disponibilidad</p>
+      </div>
+    </div>
+ <?php require_once('./scripts/alertas.php'); ?>
+    
+    
+          
+         <div class="container">
+             
+        <div class="row"> 
+            <div class="col-lg-8">
     <form role="form" method="POST" action="reservaHospedaje1.php">
         
                 <?php
@@ -81,11 +85,12 @@ if ( !($hotela=filter_input(INPUT_POST, 'hotel')) && !($hotela=filter_input(INPU
                       <input title="Introduzca la fecha de Fin" type="date" class="form-control" name="fin" id="fin" placeholder="20%" required>
                   </div><br/><br/>
                 </div> 
+        <br/>
     
             <div class="row">
                  <div class="span6" style="text-align:center">
                   <div class="col-md-3">
-                      <button type="submit" name="Buscar" value="Buscar"class="btn btn-info" >
+                      <button type="submit"  name="Buscar" value="Buscar"class="btn btn-info" >
                         Buscar
                       </button>
                   </div>
@@ -94,7 +99,10 @@ if ( !($hotela=filter_input(INPUT_POST, 'hotel')) && !($hotela=filter_input(INPU
                     <br>
             </div>
 </form><br/><br/><br/><br/>
-
+</div> 
+             </div> 
+             
+              </div> 
  <?php
                 
     }
@@ -102,16 +110,8 @@ if ( !($hotela=filter_input(INPUT_POST, 'hotel')) && !($hotela=filter_input(INPU
     ?>
   
         
-        
-       <!-- Example row of columns -->
-      <div class="row">
-          
-          
-        <div class="col-lg-8">
 
-          
-            
-         <div class="table-responsive">   
+    
         
 
     
@@ -167,6 +167,29 @@ if ($hotela) {
       
       
     ?>
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Reserva Hospedaje</h1>
+        <p>Vea la disponibilidad para la fecha del hotel, y ingrese los datos del cliente</p>
+      </div>
+    </div>
+ <?php require_once('./scripts/alertas.php'); ?>
+    
+    
+          
+    <div class="container">
+        
+       <!-- Example row of columns -->
+       <div style="width: 1500px;" class="row">
+          
+          
+        <div class="col-lg-6">  
+         
+          
+            
+         <div class="table-responsive">  
+             
              </br></br>
              
              <table id= "tabla" class="table table-bordered" >
@@ -243,7 +266,14 @@ if ($hotela) {
     pager.showPage(1);
 </script>    
 
+<br/>
 
+<div class="panel-default" >
+            <div class="panel-heading">
+            <h3 class="panel-title" align="center">Campos:</h3>
+            </div>
+            
+  <div class="panel-body" >
 
 <form role="form" method="POST" action="resevaHospedaje2.php">
         
@@ -416,6 +446,8 @@ if ($hotela) {
                     <br>
             </div>
 </form><br/><br/>
+</div>
+</div>
 
                <div class="row">
                  <div class="span6" style="text-align:center">
@@ -444,8 +476,11 @@ if ($hotela) {
                   
         </div>
             
-        </div>    
-            
+        </div> 
+         <div class="col-md-6">  
+          
+            <?php require_once('./modulos/sidebar.php'); ?> 
+         </div>
         
           
              
@@ -454,19 +489,18 @@ if ($hotela) {
       
             
             
-            
-<?php require_once('./modulos/sidebar.php'); ?>           
-          
+      
       </div>
 
       <hr>
 
-<?php require_once('./modulos/footer.php'); ?> 
-      
-      
-    </div> <!-- /container -->
+       <?php require_once('./modulos/footer.php'); ?> 
+      <?php require_once('./modulos/scriptjs.php'); ?>
 
-<?php require_once('./modulos/scriptjs.php'); ?> 
+    </div> <!-- /container -->
+  
+
+
     
     </body>
 </html>

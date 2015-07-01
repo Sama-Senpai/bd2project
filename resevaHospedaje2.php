@@ -55,8 +55,8 @@
            $validarCamas = mysql_query("SELECT * FROM hotel WHERE cod_hotel='$hotel'");
            $resultadoVcamas=mysql_fetch_assoc($validarCamas);
                
-        
-                if(($resultadoVcamas['numero_camas_dips']<$adic)){
+       $camasHotel= $resultadoVcamas['numero_camas_dips'];
+                if(($camasHotel<($adic*$cantidad))){
                     echo 'No hay camas adicionales en este hotel';
                     $bandera=1;
            
@@ -170,7 +170,14 @@ WHERE habitacion.cod_hotel='$hotel' AND
   
      $i=0;
      
+     
      if($bandera==0){
+         $camasNuevas=($camasHotel-($adic*$cantidad));
+         
+         $queryActHab= mysql_query(" UPDATE hotel
+   SET n_hab='$camasNuevas'
+   WHERE cod_hotel='$hotel'");
+         
     while ($i<$cantidad){
         $datos1 = mysql_fetch_assoc($busqueda1);
    
@@ -202,8 +209,8 @@ VALUES ('$cod', '$cedula', '$hotel', '$tipo', '$paquete', '$nHab[$i]', '$ini', '
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Selección de Mesas</h1>
-        <p>Ingresa en la sala que desees. Disfruta de diferentes deportes.</p>
+        <h1>Factura de Reserva/hospedaje</h1>
+        <p>Luego de confirmar los datos puede continuar.</p>
       </div>
     </div>
 

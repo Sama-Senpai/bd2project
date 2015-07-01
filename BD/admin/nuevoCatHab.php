@@ -26,12 +26,14 @@
 
                 if(!$query){
                     echo 'Error al insertar un producto';
+                    header("Location:../../admin/agregarCatHab.php?errorCode=9&errorType=1");
                      
                 }else{
                     echo 'Guardo Correctamente';
+                    header("Location:../../admin/agregarCatHab.php?errorCode=6&errorType=3");
                    
                 }
-                header("Location:../../admin/agregarCatHab.php");
+                
            }  
               
 ?>

@@ -13,6 +13,7 @@
         <p>Creación: Para crear un hotel solo debe llenar los siguientes campos</p>
       </div>
     </div>
+    <?php require_once('../scripts/alertas.php'); ?>
 
 <br>
     <div class="container">
@@ -85,30 +86,19 @@
                 
                 <br/><br/>
                 
-               <!-- <div class="form-group">
-                  <label for="capacidad" class="col-md-2">
-                    Capacidad:
-                  </label>
-                  <div class="col-md-10">
-                      <input title="Capacidad" type="capacidad" class="form-control" name="capacidad" id="capacidad" placeholder="Ingrese aqui la capacidad de personas para esta mesa" required>
-                  </div><br/><br/>
-                </div>-->
-
-                
-
-
-                
 
                 <div class="row">
-                  <div class="col-md-2">
-                  </div>                  
                   <div class="col-md-3">
-                      <button type="submit" name="Crear" class="btn btn-info" >
+                  </div>                  
+                  <div class="col-md-2">
+                      <button style=" position:absolute;
+    left: 210px;
+    " type="submit" name="Crear" class="btn btn-info" >
                         Crear
                       </button>
                   </div>
                     <br>
-                    <br>
+                  <br>
                 </div>
               </form> 
         </div>

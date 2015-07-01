@@ -26,16 +26,16 @@ if(filter_input(INPUT_GET,"errorCode")){
             $error = "Tiene que ingresar un tipo de Habitacion";
             break;
         case 6:
-            $error = "Se añadio correctamente el campo";
+            $error = "Añadido correctamente";
             break;
         case 7:
-            $error = "Atención, Usted no se puede registrar a Royal Bets, es menor de 18 años";
+            $error = "Confirmacion Realizada Correctamente";
             break;
         case 8:
-            $error = "Ya existe un usuario con esa Cédula de Identidad";
+            $error = "Fallo en la confirmacion porfavor verifique los datos";
             break;
         case 9:
-            $error = "Ya existe un usuario con ese Correo Electrónico";
+            $error = "Por favor verifique los datos ingresados";
             break;
         case 10:
             $error = "Operación exitosa";

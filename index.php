@@ -30,31 +30,31 @@
       </ol>
       <div class="carousel-inner">
         <div class="item active">
-            <img src="img/vanp3.jpg" alt="First slide">
+            <img src="img/portada1.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Bienvenido!</h1>
-              <p>apostar ahora es más rápido, confiable y sencillo...</p>
+              <p>Trabajar es mas Confortable con Hoteles Royals</p>
             </div>
           </div>
         </div>
         <div class="item">
-          <img src="img/money.jpg" alt="Second slide">
+          <img src="img/portada2.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Juega Ahora!</h1>
-              <p>vive, disfruta y gana...</p>
-              <p><a class="btn btn-lg btn-warning" href='mesas.php' role="button">Apostar</a></p>
+              <h1>Haga una Reservacion Ahora..</h1>
+              <p>vive, trabaja y gana...</p>
+              <p><a class="btn btn-lg btn-warning" href='reservaHospedaje1.php' role="button">Reserva</a></p>
             </div>
           </div>
         </div>
         <div class="item">
-            <img src="img/f1.jpg" alt="Third slide">-->
+            <img src="img/portada3.jpg" alt="Third slide">-->
           <div class="container">
             <div class="carousel-caption">
-              <h1>Conoce tus resultados</h1>
-              <p>Sé el primero...</p>
-              <p><a class="btn btn-lg btn-warning" href='resultados.php' role="button">Resultados</a></p>
+              <h1>Conoce tus Paquetes</h1>
+              <p>Ofrece Paquetes,(Paquetes no disponible en un hotel Habla con el administrador)</p>
+              <p><a class="btn btn-lg btn-warning" href='MostrarCatalogos.php' role="button">Paquetes</a></p>
             </div>
           </div>
         </div>

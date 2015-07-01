@@ -25,19 +25,19 @@ e<?php require_once('./modulos/header.php'); ?>
         <div class="col-lg-3">
           <h2>Inicio del sitio</h2>
           <p>En este momento está ubicado en el área administrativa, si desea volver a la parte visible por los usuarios, presione "Salir" en el menú superior.</p>
-          <img src=" ../img/guia.png">
+          <img src=" ../img/guia2.png">
         </div>  
           <h2>Herramientas de Agregacion</h2>
         <div class="col-lg-9">     
             
             <div class="col-lg-3">
               <h4>Agregar Habitacion</h4>
-              <img src=" ../img/mesa.png">
+              <img src=" ../img/agregarHab.jpg">
               <p><br><?php  echo "<a class='btn btn-default' href='agregarHabitacionxHotel.php'> Ir &raquo; </a>"; ?></p>
             </div>
             <div class="col-lg-3">
               <h4>Agregar Paquete</h4>
-              <img src=" ../img/juegos.png">
+              <img src=" ../img/agregarPa.png">
               <p><br><?php echo "<a class='btn btn-default' href='paquetexhotel.php'> Ir &raquo; </a>"; ?></p>
             </div>
                    
@@ -47,26 +47,26 @@ e<?php require_once('./modulos/header.php'); ?>
           <div class="col-lg-3">
           <h2>Ayuda</h2>
           <p>En la seccion "Editar Habitacion" Podra Editar Habitaciones asi como eliminar estas.</p>
-          <img src=" ../img/guia.png">
+          <img src=" ../img/guia4.jpg">
         </div>
           <h2>Herramientas de Editado</h2>
           
             <div class="col-lg-9"> 
                <div class="col-lg-3">
               <h4>Editar Habitacion</h4>
-              <img src=" ../img/moneda.png">
+              <img src=" ../img/ediHabin.jpg">
               <p><br><?php echo "<a class='btn btn-default' href=''> Ir &raquo; </a>"; ?></p>
             </div>
                 
              <div class="col-lg-3">
               <h4>Eliminar Paquete</h4>
-              <img src=" ../img/moneda.png">
+              <img src=" ../img/edipa.jpg">
               <p><br><?php echo "<a class='btn btn-default' href=''> Ir &raquo; </a>"; ?></p>
             </div>
                 
               <div class="col-lg-3">
               <h4>Editar Hotel</h4>
-              <img src=" ../img/moneda.png">
+              <img src=" ../img/ediho.jpg">
               <p><br><?php echo "<a class='btn btn-default' href=''> Ir &raquo; </a>"; ?></p>
             </div>
                 

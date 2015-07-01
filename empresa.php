@@ -56,8 +56,8 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Royal Bets</h1>
-        <p>Es una empresa fundada 2013 por un grupo de jóvenes desarrolladores en el área de informática.<br> 
+        <h1>Hoteles Royal</h1>
+        <p>Es una empresa fundada 2015 por un grupo de jóvenes desarrolladores en el área de informática.<br> 
             Nuestra misión es ofrecerle confianza, seguridad y transparencia al cliente al momento de realizar sus transacciones.
         </p>
       </div>
@@ -76,7 +76,7 @@
             </div>
             <div class="col-lg-8">
                 <h2>Contacto</h2>
-                <p>Email: royalbetsca@gmail.com<br>Teléfono: 0286-9235588<br><br> 
+                <p>Email: HotelRoyals@gmail.com<br>Teléfono: 0286-9612165<br><br> 
                   <br>
                   <div id="map-canvas" style="width: 100%; height: 400px;"></div>
               </p>
