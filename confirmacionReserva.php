@@ -35,7 +35,12 @@ if ( (!$hotela=filter_input(INPUT_POST, 'hotel')) && !($hotela=filter_input(INPU
     
           
     <div class="container">
-        
+        <?php require_once('./scripts/alertas.php'); ?>
+        <div class="panel-default" >
+            <div class="panel-heading">
+            <h3 class="panel-title" align="center">Campos:</h3>
+            </div>
+        <br/>
     <form role="form" method="POST" action="confirmacionReserva.php">
         
         <div class="form-group">
@@ -99,7 +104,9 @@ if ( (!$hotela=filter_input(INPUT_POST, 'hotel')) && !($hotela=filter_input(INPU
             <div class="row">
                  <div class="span6" style="text-align:center">
                   <div class="col-md-3">
-                      <button type="submit" name="Buscar" value="Buscar"class="btn btn-info" >
+                      <button  style=" position:absolute;
+    left:500px;
+    " type="submit" name="Buscar" value="Buscar"class="btn btn-info" >
                         Buscar
                       </button>
                   </div>
@@ -177,7 +184,7 @@ if ($hotela) {
     <div class="jumbotron">
       <div class="container">
         <h1>Confirmacion de Reserva</h1>
-        <p>Despues del que cliente confirme el pato precione el boton "confirmar"</p>
+        <p>Despues del que cliente confirme el pago precione el boton "confirmar"</p>
       </div>
     </div>
  <?php require_once('./scripts/alertas.php'); ?>
@@ -276,7 +283,10 @@ if($j<$contador){
 </td> 
 </tr> 
 </table> 
-             <button type="submit" onclick = "location='http://localhost/bd2project/BD/reservaHospedaje/confirmarReserva.php?hotel=<?php echo $hotela; ?>&ini=<?php echo $ini; ?>&fin=<?php echo $fin; ?>&cedula=<?php echo $cedula; ?>'" class="btn btn-success" >Confirmar</button>
+             <button style=" position:absolute;
+    left: 500px;
+    top: 100px;
+    " type="submit" onclick = "location='http://localhost/bd2project/BD/reservaHospedaje/confirmarReserva.php?hotel=<?php echo $hotela; ?>&ini=<?php echo $ini; ?>&fin=<?php echo $fin; ?>&cedula=<?php echo $cedula; ?>'" class="btn btn-success" >Confirmar</button>
                      
        
              
@@ -307,8 +317,7 @@ if($j<$contador){
             
             
             
-<?php require_once('./modulos/sidebar.php'); ?>           
-          
+        
       </div>
 
       <hr>

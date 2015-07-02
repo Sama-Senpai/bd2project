@@ -37,6 +37,12 @@ if ( !($hotela=filter_input(INPUT_POST, 'hotel')) && !($hotela=filter_input(INPU
              
         <div class="row"> 
             <div class="col-lg-8">
+                 <div class="panel-default" >
+            <div class="panel-heading">
+            <h3 class="panel-title" align="center">Campos:</h3>
+            </div>
+                <br/>
+                
     <form role="form" method="POST" action="reservaHospedaje1.php">
         
                 <?php
@@ -79,7 +85,7 @@ if ( !($hotela=filter_input(INPUT_POST, 'hotel')) && !($hotela=filter_input(INPU
         
              <div class="form-group">
                   <label for="fin" class="col-md-2">
-                    Fecha inicio:
+                    Fecha fin:
                   </label>
                   <div class="col-md-10">
                       <input title="Introduzca la fecha de Fin" type="date" class="form-control" name="fin" id="fin" placeholder="20%" required>
@@ -90,7 +96,8 @@ if ( !($hotela=filter_input(INPUT_POST, 'hotel')) && !($hotela=filter_input(INPU
             <div class="row">
                  <div class="span6" style="text-align:center">
                   <div class="col-md-3">
-                      <button type="submit"  name="Buscar" value="Buscar"class="btn btn-info" >
+                      <button style=" position:absolute;
+    left: 230px; " type="submit"  name="Buscar" value="Buscar"class="btn btn-info" >
                         Buscar
                       </button>
                   </div>
@@ -110,7 +117,9 @@ if ( !($hotela=filter_input(INPUT_POST, 'hotel')) && !($hotela=filter_input(INPU
     ?>
   
         
-
+ </div> 
+             
+           
     
         
 
@@ -151,6 +160,22 @@ if ( !($hotela=filter_input(INPUT_POST, 'hotel')) && !($hotela=filter_input(INPU
     
 if ($hotela) {
        
+    $m=0;
+    $habitacionesLibres=mysql_query("SELECT *
+FROM `habitacion_hotel`
+WHERE `Hotel_cod`='$hotela'");
+    
+       while ($tupla = mysql_fetch_assoc($habitacionesLibres)){
+    
+       $descripciones[$m]=$tupla['descripcion'];
+            $codigos[$m]=$tupla['catalogo_habitacion_cod_ch'];
+       $precios[$m]=$tupla['precio_dia'];
+       $cantidades[$m]=$tupla['cantidad'];
+       $camasadicionales[$m]=$tupla['NroAdicionales'];
+   
+        $m++;
+     
+    }
     
       
       
@@ -185,6 +210,10 @@ if ($hotela) {
           
           
         <div class="col-lg-6">  
+            <div class="panel-default" >
+            <div class="panel-heading">
+            <h3 class="panel-title" align="center">Habitaciones Disponibles:</h3>
+            </div>
          
           
             
@@ -227,6 +256,14 @@ if ($hotela) {
                                  $array3[$contador2]=$array[1];
                                  $contador2++;
                       
+                                 
+                                 $y=0;
+                                 while($y<$m){
+                                 if($codigos[$y]==$array[1]){
+                                         $codigos[$y]=0;
+                                     }
+                                     $y++;
+                                 }
               ?>
                     
                       <tr>
@@ -234,19 +271,38 @@ if ($hotela) {
                                 <td data-title="Precio"><?php echo $array [5]; ?> </td>
                                 <td data-title="Disponibles" class="numeric"><?php echo $cuenta= $array [3] - $array [2]; ?></td>
                                 <td data-title="Camas Adicinales" class="numeric"> <div align="center"><?php echo $array [6]; ?> </div> </td>
-                               
-                        </tr>   
-                    
-                    
-                        
-                        
-                </tbody>
+                       </tr>         
+              
                         
                <?php                                       
                   }
                   mysql_free_result($datos);
                       
+                  $p=0;
+                  while($p<$m){
+                      if($codigos[$p]){
                 ?>
+                            <tr>    
+                      <td data-title="Descripción"> <?php echo $descripciones[$p]; ?>  </td>
+                                <td data-title="Precio"><?php echo $precios[$p]; ?> </td>
+                      <td data-title="Disponibles" class="numeric"><?php echo $cantidades[$p]; ?></td>
+                                <td data-title="Camas Adicinales" class="numeric"> <div align="center"><?php echo $camasadicionales[$p]; ?> </div> </td>
+                               
+                              </tr>   
+                          <?php 
+                      }
+                      $p++;
+                  }
+                 
+                      
+                  
+                ?>       
+                      
+                    
+                    
+                        
+                        
+                </tbody>
                       
                 </tbody> 
                                    
@@ -281,10 +337,10 @@ if ($hotela) {
       
                        
                     <div class="form-group">
-                  <label for="Hotel" class="col-md-2">
+                  <label for="Hotel" class="col-md-3">
                      Hotel:
                   </label>   
-                  <div class="col-md-10">
+                  <div class="col-md-2">
                       <select name="hotel">
                    
                           
@@ -300,10 +356,10 @@ if ($hotela) {
       
                          
                     <div class="form-group">
-                  <label for="Hotel" class="col-md-2">
+                  <label for="Hotel" class="col-md-3">
                    Fecha Inicio:
                   </label>   
-                  <div class="col-md-10">
+                  <div class="col-md-2">
                       <select name="ini">
                    
                           
@@ -319,10 +375,10 @@ if ($hotela) {
                 
                              
                     <div class="form-group">
-                  <label for="Hotel" class="col-md-2">
+                  <label for="Hotel" class="col-md-3">
                    Fecha Fin:
                   </label>   
-                  <div class="col-md-10">
+                  <div class="col-md-2">
                       <select name="fin">
                    
                           
@@ -340,10 +396,10 @@ if ($hotela) {
       
       
                    <div class="form-group">
-                  <label for="tipo" class="col-md-2">
+                  <label for="tipo" class="col-md-3">
                    Introduzca el Tipo de habitacion:
                   </label>   
-                  <div class="col-md-5">
+                  <div class="col-md-2">
                       <select name="tipo" onchange=>
                           <option value="0" >Seleccione un Tipo</option>
                           
@@ -353,20 +409,25 @@ if ($hotela) {
                         echo "<option value=".$array3[$j].">".$array2[$j]."</option>";
                         $j++;
     }
+     $pt=0;
+                  while($pt<$m){
+                      if($codigos[$pt]){
+                      echo "<option value=".$codigos[$pt].">".$descripciones[$pt]."</option>";                
+ 
+                           }
+                      $pt++;
+                  }
  
     ?>
                       </select>
-                  </div>
-                       <div class="form-group">
-                  <label for="cantidad" class="col-md-2">
-                    Cantidad:
-                  </label>   
-                     <div class="col-md-3">
-                      <input title="Cantidad de habitaciones" type="text" class="form-control" name="cantidad" id="cantidad" placeholder="232" pattern="[0-9]"  required>
-                    </div><br/><br/>
+                       </div><br/><br/>
+                      
+                 
                        
-                  </div> 
-                       
+                      </div>   
+     
+                
+    
                        
                        
        <?php
@@ -376,10 +437,10 @@ if ($hotela) {
   
      ?>          
                    <div class="form-group">
-                  <label for="paquete" class="col-md-2">
+                  <label for="paquete" class="col-md-3">
                       Paquete:
                   </label>   
-                  <div class="col-md-10">
+                  <div class="col-md-2">
                       <select name="paquete" onchange=>
                    <option value="0">Seleccione un Paquete</option>
                           
@@ -388,37 +449,54 @@ if ($hotela) {
     while ($datos14 = mysql_fetch_assoc($busqueda1)){
                         echo "<option value=".$datos14['numero_paquete'].">".$datos14['descripcion']."</option>";                
     }
+     
+                          
+                ?>
+                        
+                          
+                 
    
-    ?>
+    
                       </select>
                   </div><br/><br/>
+                       
+                  </div> 
+    
+                 <div class="form-group">
+                  <label for="cantidad" class="col-md-3">
+                    Cantidad:
+                  </label>   
+                     <div class="col-md-2">
+                      <input title="Cantidad de habitaciones" type="text" class="form-control" name="cantidad" id="cantidad" placeholder="232" pattern="[0-9]"  required>
+                    </div><br/><br/>
                        
                   </div> 
       
            
       
        <div class="form-group">
-                  <label for="adic" class="col-md-2">
+                  <label for="adic" class="col-md-3">
                     Numero Camas Adicionales:
                   </label>
-                  <div class="col-md-25">
+                  <div class="col-md-2">
                       <input title="Introduzca el numero de Camas adicionales" type="text" class="form-control" name="adic" id="adic" placeholder="3"  required>
                   </div><br/><br/>
                 </div> 
-            
+                        
+              
       
       
         <div class="form-group">
-                  <label for="cedula" class="col-md-2">
+                  <label for="cedula" class="col-md-3">
                     Cedula Cliente:
                   </label>
-                  <div class="col-md-10">
+                  <div class="col-md-2">
                       <input title="Introduzca la cedula del cliente" type="text" class="form-control" name="cedula" id="cedula" placeholder="256021" required>
                   </div><br/><br/>
                 </div>
       
       
-       <label for="proce"  class="col-md-5">
+       <label for="proce"  class="col-md-4">
                         Tipo de procedimiento:
                     </label> <br/>              
                         <label class="radio" >
@@ -437,8 +515,23 @@ if ($hotela) {
             <div class="row">
                  <div class="span6" style="text-align:center">
                   <div class="col-md-3">
-                      <button type="submit" name="Buscar" value="Buscar" class="btn btn-info" >
+                      <button style=" position:absolute;
+    left: 210px;
+    " type="submit" name="Buscar" value="Buscar" class="btn btn-info" >
                         Aceptar
+                      </button>
+                  </div>
+                 </div>
+                   
+            </div>
+                
+                    </div>
+                 <div class="span6" style="text-align:center">
+                  <div class="col-md-3">
+                      <button style=" position:absolute;
+    left: 300px;
+    " type="" name="" value="" onclick="javascript:window.open('http://localhost/bd2project/registro_cliente.php','','width=800,height=500,left=50,top=50,toolbar=yes');" class="btn btn-success" >
+                        Registrar Usuario
                       </button>
                   </div>
                  </div>
@@ -449,48 +542,35 @@ if ($hotela) {
 </div>
 </div>
 
-               <div class="row">
-                 <div class="span6" style="text-align:center">
-                  <div class="col-md-3">
-                      <button type="submit" name="Buscar" value="Buscar" onclick="javascript:window.open('http://localhost/bd2project/registro_cliente.php','','width=800,height=500,left=50,top=50,toolbar=yes');" class="btn btn-success" >
-                        Registrar Usuario
-                      </button>
-                  </div>
-                 </div>
-                    <br>
-                    <br>
-            </div>
+          
 
 
 
 
 
 
-         <?php
-                
-    }
-  
-    ?>     
+    
 
 
                   
         </div>
             
         </div> 
-         <div class="col-md-6">  
-          
-            <?php require_once('./modulos/sidebar.php'); ?> 
-         </div>
+         
         
-          
-             
+           </div>
+              <?php
+                
+    }
+  
+    ?>         
             
 
       
             
             
       
-      </div>
+     
 
       <hr>
 

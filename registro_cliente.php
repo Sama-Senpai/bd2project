@@ -10,13 +10,14 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Únete a la comunidad</h1>
-        <p>Para jugar con nosotros es necesario que crees una cuenta con nosotros primero. Por favor rellena los siguientes campos, lee los términos y condiciones, haz click en registrar y estarás listo para jugar en RoyalBets.com</p>
+        <h1>Registro de Clientes</h1>
+        <p>Llene los campos solicitados para registrar un usuario</p>
         <!--<p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>-->
       </div>
     </div>
 <br>
     <div class="container">
+         <?php require_once('./scripts/alertas.php'); ?>
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-lg-8">
@@ -86,15 +87,17 @@
                   </label>
                   <div class="col-md-10">
                       <input title="Introduzca su fecha de Nacimiento en el formato: DD/MM/YYYY" type="date" class="form-control" name="nacimiento" id="nacimiento" placeholder="DD/MM/YYYY" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" required>
-                  </div><br/>
+                  </div><br/><br/>
                 </div>
                                              
                                 
                 <div class="row">
                   <div class="col-md-2">
                   </div>                  
-                  <div class="col-md-3">
-                      <button type="submit" name="registrar" class="btn btn-info" onclick="validar();">
+                  <div style=" position:absolute;
+    left: 300px;
+    " class="col-md-3">
+                      <button type="submit" name="registrar" class="btn btn-info" onclick="">
                       Registrar
                       </button>
                   </div>

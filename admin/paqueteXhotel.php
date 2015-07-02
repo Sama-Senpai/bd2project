@@ -12,23 +12,28 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>AGREGAR PAQUETES A UN HOTEL</h1>
+        <h1>Agregar Paquetes a un Hotel</h1>
         <p>Creación: para agregar un paquete al Hotel seleccione este y el paquete que desee</p>
       </div>
     </div>
 
 <br>
     <div class="container">
+        <?php require_once('../scripts/alertas.php'); ?>
       <!-- Example row of columns -->
       <div class="row">
-        <div class="panel-default" >
-            <div class="panel-heading">
-            <h3 class="panel-title" align="center">Seleccion:</h3>
-            </div>
+      
+           
             
             <div class="panel-body" >
           
-        <div class="col-lg-12">
+        <div class="col-lg-8">
+           
+              <div class="panel-default" >
+             <div class="panel-heading">
+            <h3 class="panel-title" align="center">Seleccion:</h3>
+            </div>
+                  <br/><br/>
           
             <form role="form" method="POST" action="../BD/admin/nuevoPaqueXhotel.php">
            

@@ -67,7 +67,12 @@
                                                     )
                                             ");
                  
-                        header("Location:../../registro_cliente.php");
+                        if($query){
+                             header("Location:../../registro_cliente.php?errorCode=6&errorType=3");
+                        }else{
+                            header("Location:../../registro_cliente.php?errorCode=9&errorType=1");
+                        }
+                       
                     
                 }
             

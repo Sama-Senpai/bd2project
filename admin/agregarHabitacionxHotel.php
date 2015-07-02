@@ -19,9 +19,20 @@
         <p>En esta parte puede agregar Habitaciones a cada hotel</p>
       </div>
     </div>
-<?php include '../scripts/alertas.php'; ?>
 
 
+ <div class="container">
+     <?php require_once('../scripts/alertas.php'); ?>
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="panel-default" >
+            <div class="panel-heading">
+            <h3 class="panel-title" align="center">Campos:</h3>
+            </div>
+            
+            <div class="panel-body" >
+          
+        <div class="col-lg-12">
 <form role="form" method="POST" action="../BD/admin/nuevaHabitacionXhotel.php">
         
                 <?php
@@ -117,7 +128,7 @@
         
         
         
-    
+    <br/>
         
         
         
@@ -125,7 +136,9 @@
             <div class="row">
                  <div class="span6" style="text-align:center">
                   <div class="col-md-3">
-                      <button type="submit" name="Buscar" value="Buscar"class="btn btn-info" >
+                      <button style=" position:absolute;
+    left: 400px;
+    "  type="submit" name="Buscar" value="Buscar"class="btn btn-info" >
                         Agregar
                       </button>
                   </div>
@@ -136,6 +149,16 @@
 </form><br/><br/><br/><br/>
 
  
+
+  </div>
+       
+          
+      </div>
+      
+    </div> <!-- /container -->
+    
+     <hr>
+
 <hr>
 
 <footer align="center">

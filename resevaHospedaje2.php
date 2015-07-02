@@ -2,24 +2,57 @@
 
 
    $bandera=0;
-       $hotel=filter_input(INPUT_POST, 'hotel');
-      $ini=filter_input(INPUT_POST, 'ini');
-      $fin=filter_input(INPUT_POST, 'fin');
-       $tipo=filter_input(INPUT_POST, 'tipo');
+     $hotel=filter_input(INPUT_POST, 'hotel');
+   
+    
+   $ini=filter_input(INPUT_POST,'ini');
+   
+ $fin=filter_input(INPUT_POST,'fin');
+      $tipo=filter_input(INPUT_POST, 'tipo');
+    
+   
        $cantidad=filter_input(INPUT_POST, 'cantidad');
+      
      
-          $paquete=filter_input(INPUT_POST, 'paquete');
+         $paquete=filter_input(INPUT_POST, 'paquete');
+         
        
         $adic=filter_input(INPUT_POST, 'adic');
+       
     
-          $cedula=filter_input(INPUT_POST, 'cedula');
+         $cedula=filter_input(INPUT_POST, 'cedula');
+         
     
        $proce=filter_input(INPUT_POST, 'proce');
+      
+      
+      
+      $busquedaaHab = mysql_query("SELECT habitacion.n_hab FROM habitacion "
+              . "WHERE habitacion.cod_hotel='$hotel' AND habitacion.cod_CH='$tipo' AND "
+              . "habitacion.n_hab NOT IN ( SELECT reserva_hospedaje.numero_hab FROM reserva_hospedaje WHERE reserva_hospedaje.cod_hotel='$hotel' "
+              . "AND reserva_hospedaje.cod_CH='$tipo' AND (reserva_hospedaje.rc='1' OR reserva_hospedaje.rc='2' OR  reserva_hospedaje.rc='0') "
+              . "AND reserva_hospedaje.f_inicio<'$fin' AND reserva_hospedaje.f_fin>'$ini')");
+          
+             $contador=0;
+              
+                    
+             
+          while ($registroHab= mysql_fetch_assoc($busquedaaHab)){
+                      
+                        
+             
+                               echo $arrayHab[$contador]=$registroHab['n_hab'];
+                              echo  $contador++;
+          
+          
+          }
+
+     
        
        //Validar que haya tipo de habitacion
              if(!$tipo){
                     
-                    $bandera=1;
+                  $bandera=1;
            
        header("Location:./reservaHospedaje1.php?errorCode=5&errorType=4");
       
@@ -40,18 +73,12 @@
       
                 }
                 
-                //Validar fecha insonsitencia
-                    if($ini>$fin){
-                    
-                    $bandera=1;
-           
-       header("Location:./reservaHospedaje1.php?errorCode=4&errorType=4");
-      
-                }
+            
        
        
        
        //Validacion de que queden camas adicionales en el hotel 
+          
            $validarCamas = mysql_query("SELECT * FROM hotel WHERE cod_hotel='$hotel'");
            $resultadoVcamas=mysql_fetch_assoc($validarCamas);
                
@@ -78,11 +105,21 @@
       
                 }else{
                 $nombreCliente=$resultadoCliente['nombre'];
+                 
                 }
        
-       
+       mysql_free_result($validarCliente);
          $fechaAct = date("Y-m-d");   
           
+         
+         //Validar fecha
+         if($fechaAct>$ini){
+              $bandera=1;
+              header("Location:./reservaHospedaje1.php?errorCode=4&errorType=4");
+             
+              
+         }
+         
           //Aca arriba van las validaciones
           
         
@@ -101,16 +138,14 @@
          
          if($paquete){
             
-          $query3 = mysql_query("SELECT * 
-                 FROM `catalogo_paquete` 
-                 WHERE `catalogo_paquete`.`cod_cp`='$paquete'");
+          $query3 = mysql_query("SELECT * FROM `paquetes` INNER JOIN `catalogo_paquete` ON `catalogo_paquete`.`cod_cp`=`paquetes`.`catalogo_paquete_cod_cp` WHERE `paquetes`.`numero_paquete`='$paquete'");
           
           $resultado3=mysql_fetch_assoc($query3);
           
          $descuentoPaquete=$resultado3['descuento'];
          $descripcionPaquete=$resultado3['descripcion'];
          
-          
+           mysql_free_result($query3);
          }
           
           
@@ -127,7 +162,7 @@
           $precioporHabitacion=$precioDia+$precioCama;
           $montoTotalSin= (($precioDia+$precioCama)*$dias);
           $montoTotalCon=($montoTotalSin*($descuentoPaquete/100));
-        
+        mysql_free_result($query2);
           if($proce=="hosp"){
              if(!$paquete){
               $pagado=$montoTotalSin;
@@ -154,37 +189,30 @@
           
           $cod="";
          //Los querys 
-          
-         //$query1= "CALL free_rooms ('$hotel','$tipo','$ini','$fin')"; 
-         $query1="SELECT habitacion.n_hab
-FROM habitacion
-WHERE habitacion.cod_hotel='$hotel' AND 
-      habitacion.cod_CH='$tipo' AND
-      habitacion.n_hab!=( SELECT reserva_hospedaje.numero_hab
-                          FROM reserva_hospedaje
-                          WHERE reserva_hospedaje.cod_hotel='$hotel' AND 
-                                reserva_hospedaje.cod_CH='$tipo' AND
-                                (reserva_hospedaje.rc='1' OR reserva_hospedaje.rc='2' OR  reserva_hospedaje.rc='0') AND
-                                reserva_hospedaje.f_inicio<'$fin' AND reserva_hospedaje.f_fin>'$ini')";
-         $busqueda1 = mysql_query($query1);
-  
-     $i=0;
-     
-     
-     if($bandera==0){
-         $camasNuevas=($camasHotel-($adic*$cantidad));
+           $camasNuevas=($camasHotel-($adic*$cantidad));
          
          $queryActHab= mysql_query(" UPDATE hotel
    SET n_hab='$camasNuevas'
    WHERE cod_hotel='$hotel'");
+          
+         //$query1= "CALL free_rooms ('$hotel','$tipo','$ini','$fin')"; 
+ 
          
+     $i=0;
+     
+     
+     if($bandera==0){
+  
+
     while ($i<$cantidad){
-        $datos1 = mysql_fetch_assoc($busqueda1);
-   
-      $nHab[$i]=$datos1['n_hab'];
+       
        $queryFinal2 = mysql_query("INSERT INTO reserva_hospedaje (id_reserva, Cliente_CI, cod_hotel, cod_CH, numero_paquete, numero_hab, f_inicio, f_fin, f_reserva, pagado, rc, camas_adicionales, p_cd)
-VALUES ('$cod', '$cedula', '$hotel', '$tipo', '$paquete', '$nHab[$i]', '$ini', '$fin', '$fechaAct', '$pagado', '$rc', '$adic', '$montoTotal');
+VALUES ('$cod', '$cedula', '$hotel', '$tipo', '$paquete', '$arrayHab[$i]', '$ini', '$fin', '$fechaAct', '$pagado', '$rc', '$adic', '$montoTotal');
 ");
+       if(!$queryFinal2){
+           echo "lo que faltaba";
+       }
+        
      $i++;
      
      
@@ -284,7 +312,7 @@ echo $montoTotalCon;
 <tr bgcolor="#FFFFFF"> 
 <td>Habitaciones: <?php    $j=0;
     while ($j<$cantidad){
-   echo $nHab[$j];
+   echo $arrayHab[$j];
    echo "-";
      $j++;} ?>
     </td> 
@@ -332,7 +360,7 @@ echo $montoTotalCon;
         
     </div>
       
-<?php require_once('./modulos/sidebar.php'); ?>           
+          
           
       </div>
 

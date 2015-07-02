@@ -13,10 +13,11 @@
         <p>Creación: Para crear un hotel solo debe llenar los siguientes campos</p>
       </div>
     </div>
-    <?php require_once('../scripts/alertas.php'); ?>
+    
 
 <br>
     <div class="container">
+        <?php require_once('../scripts/alertas.php'); ?>
       <!-- Example row of columns -->
       <div class="row">
         <div class="panel-default" >

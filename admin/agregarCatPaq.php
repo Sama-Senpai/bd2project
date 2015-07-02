@@ -18,6 +18,7 @@
 
 <br>
     <div class="container">
+     <?php require_once('../scripts/alertas.php'); ?>
       <!-- Example row of columns -->
       <div class="row">
         <div class="panel-default" >
@@ -81,7 +82,9 @@
                   <div class="col-md-2">
                   </div>                  
                   <div class="col-md-3">
-                      <button type="submit" name="Crear" class="btn btn-info" >
+                      <button style=" position:absolute;
+    left: 210px;
+    " type="submit" name="Crear" class="btn btn-info" >
                         Crear
                       </button>
                   </div>

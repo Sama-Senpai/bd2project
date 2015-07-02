@@ -21,6 +21,7 @@
           <li><a href="reservaHospedaje1.php">Reserva/Hospedaje</a></li>
           <li><a href="confirmacionReserva.php">Confirmacion</a></li>
           <li><a href="MostrarCatalogos.php">Paquetes</a></li>
+           <li><a href="registro_cliente.php">Registrar Cliente</a></li>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Información<b class="caret"></b></a>
           <ul class="dropdown-menu">

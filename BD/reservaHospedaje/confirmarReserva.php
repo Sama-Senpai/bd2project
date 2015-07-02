@@ -1,4 +1,3 @@
-<script src="js/main.js"></script>
 <?php   
         
         // Conexion
@@ -10,16 +9,21 @@
     echo  $cedula=filter_input(INPUT_GET,"cedula");
     
     
-    $query("CALL confirmar('$hotela', '$cedula','$ini', '$fin')");
+    $query=mysql_query("UPDATE reserva_hospedaje
+SET reserva_hospedaje.rc='1',reserva_hospedaje.pagado='1'
+WHERE reserva_hospedaje.cod_hotel='$hotela' AND 
+   reserva_hospedaje.Cliente_CI='$cedula' AND
+   reserva_hospedaje.rc='0' AND
+   reserva_hospedaje.f_inicio='$ini' AND reserva_hospedaje.f_fin='$fin'");
     
     if($query){
-        
-       header("Location:./confirmacionReserva.php?errorCode=7&errorType=3");
+        echo "borralo";
+       header("Location:../../confirmacionReserva.php?errorCode=7&errorType=3");
       
         
     }else{
-        
-       header("Location:./confirmacionReserva.php?errorCode=8&errorType=4");
+         echo "no lo borralo";
+       header("Location:../../confirmacionReserva.php?errorCode=8&errorType=4");
     }
     
    ?>
